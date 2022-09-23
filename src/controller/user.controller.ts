@@ -14,7 +14,7 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
 
   const hashedPass = hashedPassword(password);
 
-  const newUser: IUser = await User.create({
+  const newUser: any = await User.create({
     name,
     employmentStatus,
     yearsEmployed,
@@ -58,7 +58,7 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
     score += 1;
   }
   newUser.score = score
-  newUser.save()
+  await newUser.save()
   return res.status(201).send({ data: newUser, message: "sign up successful" });
 };
 
