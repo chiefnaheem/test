@@ -6,6 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "compile": "yarn tsc -w",
+    "test": "jest --runInBand",
     "clean": "rm -rf dist && mkdir dist",
     "heroku-postbuild": "yarn clean && yarn compile"
   },
