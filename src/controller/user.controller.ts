@@ -79,7 +79,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
 //LOGIC
 
 export const scoreFormInformation = async (req: Request, res: Response, next: NextFunction) => {
-  const user = await User.find();
+  const users = await User.find({sort: {score: -1}});
   
-  return res.status(200).send({ score, message: `Your total score is ${score}` });
+  return res.status(200).send(users);
 };
